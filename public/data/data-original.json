@@ -1,0 +1,62 @@
+[
+    {
+        "id": "menu01",
+        "title": "Lunch Special",
+        "contents": [
+            {
+                "id": "note01",
+                "type": "note",
+                "contents": "Monday - Sunday 10am - 3pm"
+            }, {
+                "id": "note02",
+                "type": "note",
+                "contents": "All entrees served with <em>steamed rice, salad and soup</em>. Fried vegetable spring roll or pork roll add $1.00 each."
+            }, {
+                "id": "L1",
+                "type": "menuitem",
+                "title": "Grilled Pork",
+                "desc": "Topping with oyser sauce. Served with steamed broccoli.",
+                "price": 8
+            }, {
+                "id": "L2",
+                "type": "menuitem",
+                "title": "Grilled Chicken Breast",
+                "desc": "Topping with oyser sauce. Served with steamed broccoli.",
+                "price": 8
+            }, {
+                "id": "L3",
+                "type": "menuitem",
+                "title": "Grilled Steak",
+                "desc": "Topping with oyser sauce. Served with steamed broccoli.",
+                "price": 8
+            }
+        ] 
+    }, {
+        "id": "menu02",
+        "title": "Beverages",
+        "contents": [
+            {
+                "id": "B1",
+                "type": "menuitem",
+                "contents": {
+                    "title": "Thai Ice Tea, Thai Ice Coffee",
+                    "price": 3
+                }
+            }, {
+                "id": "B2",
+                "type": "menuitem",
+                "contents": {
+                    "title": "Soft Drinks, Milk",
+                    "price": 2
+                }
+            }, {
+                "id": "B3",
+                "type": "menuitem",
+                "contents": {
+                    "title": "Bottle Water",
+                    "price": 1.85
+                }
+            }
+        ] 
+    }
+]

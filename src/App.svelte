@@ -1,14 +1,18 @@
 <script>
+	const dataFile = 'data/data.json'
+
 	let promise = getMenu();
 	let editMode = false;
+	let menuData;
 
 	let menuHeading = "Appetizers";
 
 	async function getMenu() {
-		const res = await fetch(`data.json`);
+		const res = await fetch(dataFile);
 		const text = await res.text();
 
 		if (res.ok) {
+			menuData = text;
 			return text;
 		} else {
 			throw new Error(text);
@@ -48,7 +52,7 @@
 		padding-right: .5em;
 	}
 
-	.menu {
+	/* .menu {
 		max-width: 52rem;
 		margin: 0 auto;
 		padding: 0 3rem;
@@ -83,7 +87,7 @@
 	.menu__cell--price {
 		width: 3rem;
 		text-align: right;
-	}
+	} */
 
 
 	
@@ -98,14 +102,24 @@
 
 		{#await promise}
 			<p>...loading</p>
-		{:then menu}
-			{#each JSON.parse(menu) as menuItem}
-				<div class="menu__row">
-					<span class="menu__cell menu__cell--id">{menuItem.id}. </span>
-					<span class="menu__cell menu__cell--name">{menuItem.name}</span>
-					<span class="menu__cell menu__cell--desc">{menuItem.desc}</span>
-					<span class="menu__cell menu__cell--price">${menuItem.price}</span>
-				</div>
+		{:then menus}
+			{#each JSON.parse(menus) as menu}
+				<h2 class="menu__heading">{menu.title}</h2>
+				{#each menu.contents as menuRow}
+					<div class="menu__row">
+						{#if menuRow.type === "note"}
+							<p class="menu__note">{@html menuRow.contents}</p>
+						{:else}
+							<span class="menu__cell menu__cell--id">{@html menuRow.id}. </span>
+							<span class="menu__cell menu__cell--name">{@html menuRow.title}</span>
+							<span class="menu__cell menu__cell--desc">{@html menuRow.desc}</span>
+							<span class="menu__cell menu__cell--price">${@html menuRow.price.toFixed(2)}</span>
+						{/if}
+					</div>
+				{/each}
+					
+			{:else}
+				<p class="error">No menus found!</p>
 			{/each}
 		{:catch error}
 			<p style="color: red">{error.message}</p>
@@ -116,19 +130,13 @@
 	<section class="menu">
 		<h2 class="menu__heading" contenteditable="true" bind:innerHTML={menuHeading}>{menuHeading}</h2>
 
-		{#await promise}
-			<p>...loading</p>
-		{:then menu}
-			{#each JSON.parse(menu) as menuItem}
-				<div class="menu__row">
-					<span class="menu__cell menu__cell--id">{menuItem.id}. </span>
-					<span class="menu__cell menu__cell--name">{menuItem.name}</span>
-					<span class="menu__cell menu__cell--desc">{menuItem.desc}</span>
-					<span class="menu__cell menu__cell--price">${menuItem.price}</span>
-				</div>
-			{/each}
-		{:catch error}
-			<p style="color: red">{error.message}</p>
-		{/await}
+		{#each JSON.parse(menuData) as menuItem}
+			<div class="menu__row">
+				<span class="menu__cell menu__cell--id">{menuItem.id}. </span>
+				<span class="menu__cell menu__cell--name">{menuItem.name}</span>
+				<span class="menu__cell menu__cell--desc">{menuItem.desc}</span>
+				<span class="menu__cell menu__cell--price">${menuItem.price}</span>
+			</div>
+		{/each}
 	</section>
 {/if}
