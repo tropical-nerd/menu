@@ -1,19 +1,19 @@
 <script>
-	const dataFile = 'data/data.json'
+	import Menu from './Menu.svelte';
 
-	let promise = getMenu();
-	let editMode = false;
+	const dataFile = 'data/data.json';
+
+	let promise = getData();
 	let menuData;
+	// let editMode = false;
 
-	let menuHeading = "Appetizers";
-
-	async function getMenu() {
-		const res = await fetch(dataFile);
+    async function getData() {
+		const res = await fetch(`data/data.json`);
 		const text = await res.text();
 
 		if (res.ok) {
-			menuData = text;
-			return text;
+			menuData = JSON.parse(text);
+			return menuData;
 		} else {
 			throw new Error(text);
 		}
@@ -36,11 +36,7 @@
 
 <style>
 
-	h1 {
-		color: purple;
-		text-align: center;
-	}
-
+	
 	.edit-checkbox {
 		text-align: right;
 		max-width: 52rem;
@@ -52,91 +48,26 @@
 		padding-right: .5em;
 	}
 
-	/* .menu {
-		max-width: 52rem;
-		margin: 0 auto;
-		padding: 0 3rem;
-	}
 
-	.menu__row {
-		
-		display: table-row;
-	}
-
-	.menu__row + .menu__row {
-		border: 1px solid #666;
-	}
-
-	.menu__cell {
-		display: table-cell;
-		padding: 1rem 0;
-	}
-
-	.menu__cell--id {
-		width: 3rem;
-	}
-
-	.menu__cell--name {
-		width: 7rem; 
-	}
-
-	.menu__cell--desc {
-		width: auto;
-	}
-
-	.menu__cell--price {
-		width: 3rem;
-		text-align: right;
-	} */
 
 
 	
 </style>
-<h1>Thai Cafe</h1>
 
-<label class="edit-checkbox"><span class="edit-checkbox__text">Edit</span><input type="checkbox" bind:checked={editMode} /></label>
+<main>
+	<h1 class="site-title">Thai Cafe</h1>
 
-{#if !editMode}
-	<section class="menu">
-		<h2 class="menu__heading">{menuHeading}</h2>
+	<!-- <label class="edit-checkbox"><span class="edit-checkbox__text">Edit</span><input type="checkbox" bind:checked={editMode} /></label> -->
 
-		{#await promise}
-			<p>...loading</p>
-		{:then menus}
-			{#each JSON.parse(menus) as menu}
-				<h2 class="menu__heading">{menu.title}</h2>
-				{#each menu.contents as menuRow}
-					<div class="menu__row">
-						{#if menuRow.type === "note"}
-							<p class="menu__note">{@html menuRow.contents}</p>
-						{:else}
-							<span class="menu__cell menu__cell--id">{@html menuRow.id}. </span>
-							<span class="menu__cell menu__cell--name">{@html menuRow.title}</span>
-							<span class="menu__cell menu__cell--desc">{@html menuRow.desc}</span>
-							<span class="menu__cell menu__cell--price">${@html menuRow.price.toFixed(2)}</span>
-						{/if}
-					</div>
-				{/each}
-					
-			{:else}
-				<p class="error">No menus found!</p>
-			{/each}
-		{:catch error}
-			<p style="color: red">{error.message}</p>
-		{/await}
-	</section>
-
-{:else}
-	<section class="menu">
-		<h2 class="menu__heading" contenteditable="true" bind:innerHTML={menuHeading}>{menuHeading}</h2>
-
-		{#each JSON.parse(menuData) as menuItem}
-			<div class="menu__row">
-				<span class="menu__cell menu__cell--id">{menuItem.id}. </span>
-				<span class="menu__cell menu__cell--name">{menuItem.name}</span>
-				<span class="menu__cell menu__cell--desc">{menuItem.desc}</span>
-				<span class="menu__cell menu__cell--price">${menuItem.price}</span>
-			</div>
+	{#await promise}
+		<p>...loading</p>
+	{:then menus}
+		{#each menus as menu}
+			<Menu {menu}/>
+		{:else}
+			<p class="error">No menus found!</p>
 		{/each}
-	</section>
-{/if}
+	{:catch error}
+		<p style="color: red">{error.message}</p>
+	{/await}
+</main>

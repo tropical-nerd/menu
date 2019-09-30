@@ -15,20 +15,73 @@
                 "id": "L1",
                 "type": "menuitem",
                 "title": "Grilled Pork",
-                "desc": "Topping with oyser sauce. Served with steamed broccoli.",
+                "desc": "Topping with oyster sauce. Served with steamed broccoli",
                 "price": 8
             }, {
                 "id": "L2",
                 "type": "menuitem",
                 "title": "Grilled Chicken Breast",
-                "desc": "Topping with oyser sauce. Served with steamed broccoli.",
+                "desc": "Topping with oyster sauce. Served with steamed broccoli",
                 "price": 8
             }, {
                 "id": "L3",
                 "type": "menuitem",
                 "title": "Grilled Steak",
-                "desc": "Topping with oyser sauce. Served with steamed broccoli.",
+                "desc": "Topping with oyster sauce. Served with steamed broccoli",
+                "price": 9
+            }, {
+                "id": "L4",
+                "type": "menuitem",
+                "title": "Grilled Salmon",
+                "desc": "Topping with shrimp, vegetable, and oyster sauce",
+                "price": 11
+            }, {
+                "id": "L5",
+                "type": "menuitem",
+                "title": "Grilled Shrimp",
+                "desc": "Grilled shrimp on steamed broccoli with oyser sauce",
+                "price": 10
+            }, {
+                "id": "L6",
+                "type": "menuitem",
+                "title": "Tilapia",
+                "desc": "Fried tilapia topping with shrimp, vegetable and basil",
+                "price": 10
+            }, {
+                "id": "L7",
+                "type": "menuitem",
+                "title": "Chicken Rote",
+                "desc": "Stir fried sliced chicken with yellow powder over steamed broccoli",
                 "price": 8
+            }, {
+                "id": "L8",
+                "type": "menuitem",
+                "title": "Himalaya Chicken",
+                "desc": "Stir fried sliced chicken with cashew nut and vegetable",
+                "price": 8
+            }, {
+                "id": "L9",
+                "type": "menuitem",
+                "title": "Beef with Oyster Sauce",
+                "desc": "Sauteed sliced beef, onion, carrot and asparagus with oyster sauce",
+                "price": 10
+            }, {
+                "id": "L10",
+                "type": "menuitem",
+                "title": "Basil",
+                "desc": "Pan fried hot pepper, vegetable and basil with a choice of:",
+                "options": [
+                    {
+                        "title": "Vegetable or chicken",
+                        "price": 8
+                    }, {
+                        "title": "Beef",
+                        "price": 9
+                    }, {
+                        "title": "Seafood",
+                        "price": 11
+                    }
+                ]
             }
         ] 
     }, {
@@ -38,24 +91,18 @@
             {
                 "id": "B1",
                 "type": "menuitem",
-                "contents": {
-                    "title": "Thai Ice Tea, Thai Ice Coffee",
-                    "price": 3
-                }
+                "title": "Thai Ice Tea, Thai Ice Coffee",
+                "price": 3
             }, {
                 "id": "B2",
                 "type": "menuitem",
-                "contents": {
-                    "title": "Soft Drinks, Milk",
-                    "price": 2
-                }
+                "title": "Soft Drinks, Milk",
+                "price": 2
             }, {
                 "id": "B3",
                 "type": "menuitem",
-                "contents": {
-                    "title": "Bottle Water",
-                    "price": 1.85
-                }
+                "title": "Bottle Water",
+                "price": 1.85
             }
         ] 
     }
