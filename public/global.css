@@ -1,5 +1,8 @@
 :root {
-	--chill-out-blue: #0077CC;
+	--chill-out-blue: #0077AA;
+	--paper-white: #FAFAFA;
+	--body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--heading-font: Palatino, Palatino Linotype, Palatino LT STD, Book Anitqua, Georgia, serif;
 }
 
 html, body {
@@ -9,18 +12,20 @@ html, body {
 }
 
 body {
-	background-color: #e0e0e0;
+	/* background-color: #e0e0e0; */
+	background-color: var(--chill-out-blue);
 	color: #222;
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: var(--body-font);
 	line-height: 1.5;
+	/* border: 2rem solid var(--chill-out-blue);
+	border-radius: 3rem; */
 }
 
 a {
 	color: rgb(0,100,200);
-	text-decoration: none;
 }
 
 a:hover {
@@ -71,15 +76,62 @@ button:focus {
 	border-color: #666;
 }
 
-.site-title {
+.visibly-hidden {
+	width: 1px;
+	height: 1px;
+	opacity: .01;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+}
+
+.masthead {
+	color: var(--paper-white);
 	text-align: center;
-	font-size: 4em;
+	margin: 3rem auto 6rem;
+}
+
+.masthead__wrap {
+	display: inline-block;
+}
+
+.masthead__logo {
+	width: 25rem;
+	
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--paper-white);
+}
+
+.masthead__subheading {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	padding-bottom: .25rem;
+	/* border-bottom: 1px solid var(--paper-white); */
+}
+
+.masthead__phone {
+	display: block;
+	color: var(--paper-white);
+	font: var(--heading-font);
+	font-size: 2.5em;
+	font-weight: 800;
+	margin-bottom: 1rem;
+}
+
+.masthead__address {
+	font-size: 1.25rem;
+}
+
+main {
+	margin: 3rem;
+	background-color: var(--paper-white);
+	border-radius: 3rem;
 }
 
 .menu {
 	max-width: 40rem;
 	margin: 0 auto;
-	padding: 0 3rem;
+	padding: 2rem 3rem;
 	font-size: 1.125rem;
 }
 
@@ -88,8 +140,9 @@ button:focus {
 }
 
 .menu__heading {
-	font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Anitqua, Georgia, serif;
+	font-family: var(--heading-font);
 	font-size: 2.5rem;
+	line-height: 1;
 	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;

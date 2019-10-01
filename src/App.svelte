@@ -35,29 +35,22 @@
 </script>
 
 <style>
-
-	
-	.edit-checkbox {
-		text-align: right;
-		max-width: 52rem;
-		margin: 0 auto;
-		padding: 0 3rem;
-	}
-
-	.edit-checkbox__text {
-		padding-right: .5em;
-	}
-
-
-
-
-	
 </style>
 
-<main>
-	<h1 class="site-title">Thai Cafe</h1>
+<header class="masthead">
+	<div class="masthead__wrap">
+		<img class="masthead__logo" src="images/chill-out-logo.svg" alt="Chill Out Cafe Logo" />
+		<div class="masthead__subheading">Dine-In &#8226; Carry-Out &#8226; Delivery</div>
+		<a class="masthead__phone" href="&#116;&#101;&#108;:(&#053;&#048;&#052;)&#032;&#056;&#055;&#050;&#045;&#057;&#054;&#050;&#056;">(&#053;&#048;&#052;)&#032;&#056;&#055;&#050;&#045;&#057;&#054;&#050;&#056;</a>
+		<div class="masthead__address">729 Burdette St., New Orleans, LA 70118
+		</div>
+	</div>
+</header>
 
-	<label class="edit-checkbox"><span class="edit-checkbox__text">Edit</span><input type="checkbox" bind:checked={editMode} /></label>
+<main>
+	<h1 class="page-title visibly-hidden">Menu</h1>
+	
+	<!-- <label class="edit-checkbox"><span class="edit-checkbox__text">Edit</span><input type="checkbox" bind:checked={editMode} /></label> -->
 
 	{#await promise}
 		<p>...loading</p>
