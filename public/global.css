@@ -1,5 +1,5 @@
 :root {
-	--chill-out-blue: #0088DD;
+	--chill-out-blue: #0077CC;
 }
 
 html, body {
@@ -9,7 +9,8 @@ html, body {
 }
 
 body {
-	color: #333;
+	background-color: #e0e0e0;
+	color: #222;
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
@@ -82,8 +83,14 @@ button:focus {
 	font-size: 1.125rem;
 }
 
+.edit-hover:hover {
+	background-color: #cde;
+}
+
 .menu__heading {
-	font-size: 2rem;
+	font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Anitqua, Georgia, serif;
+	font-size: 2.5rem;
+	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;
 	color: var(--chill-out-blue);

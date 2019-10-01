@@ -5,7 +5,7 @@
 
 	let promise = getData();
 	let menuData;
-	// let editMode = false;
+	let editMode = false;
 
     async function getData() {
 		const res = await fetch(`data/data.json`);
@@ -57,13 +57,13 @@
 <main>
 	<h1 class="site-title">Thai Cafe</h1>
 
-	<!-- <label class="edit-checkbox"><span class="edit-checkbox__text">Edit</span><input type="checkbox" bind:checked={editMode} /></label> -->
+	<label class="edit-checkbox"><span class="edit-checkbox__text">Edit</span><input type="checkbox" bind:checked={editMode} /></label>
 
 	{#await promise}
 		<p>...loading</p>
 	{:then menus}
 		{#each menus as menu}
-			<Menu {menu}/>
+			<Menu {menu} {editMode}/>
 		{:else}
 			<p class="error">No menus found!</p>
 		{/each}
